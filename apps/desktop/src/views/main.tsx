@@ -11,7 +11,7 @@ export const MainView = () => {
   }, []);
 
   return (
-    <div className="h-screen p-2 bg-zinc-900">
+    <div className="h-full p-2 bg-zinc-900">
       <div className="pt-1 mb-3 font-bold text-2xl text-center">
         <p className="mb-2">Authorize Discord</p>
         <p className="text-sm text-center text-zinc-400">

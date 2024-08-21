@@ -13,6 +13,7 @@ import { useUpdate } from "./hooks/use-update";
 import { useAppStore } from "./store";
 import { Toaster } from "./components/ui/toaster";
 import { useEffect } from "react";
+import { Settings3Component } from "./views/settings/account";
 
 function App() {
   useSocket();
@@ -32,7 +33,7 @@ function App() {
   const visibleClass = visible ? "opacity-100" : "opacity-0";
 
   return (
-    <div className={`text-white h-screen select-none rounded-lg ${visibleClass}`}>
+    <html className="text-white">
       {!pin && (
         <NavBar
           isUpdateAvailable={isAvailable}
@@ -41,7 +42,6 @@ function App() {
           setAlignDirection={setHorizontalDirection}
         />
       )}
-
       <Toaster />
       <Routes>
         <Route path="/" Component={MainView} />
@@ -49,18 +49,20 @@ function App() {
         <Route
           path="/settings"
           element={
-            <SettingsView
-              update={{
-                isAvailable,
-                error,
-                status,
-              }}
-            />
+            // <SettingsView
+            //   update={{
+            //     isAvailable,
+            //     error,
+            //     status,
+            //   }}
+            // />
+
+            <Settings3Component />
           }
         />
         <Route path="/error" Component={ErrorView} />
       </Routes>
-    </div>
+    </html>
   );
 }
 

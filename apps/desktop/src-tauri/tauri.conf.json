@@ -13,7 +13,9 @@
   "tauri": {
     "updater": {
       "active": true,
-      "endpoints": ["https://update.overlayed.dev/{{target}}/{{arch}}/{{current_version}}"],
+      "endpoints": [
+        "https://update.overlayed.dev/{{target}}/{{arch}}/{{current_version}}"
+      ],
       "dialog": false,
       "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM5MDVDNEVFQTc2QzJBNDYKUldSR0tteW43c1FGeVhzUm9vNEJKUkFyUXhSS2lrZWRuV1p1VWx5Tkg5bUhEWDZrOGprbGNnWkQK"
     },
@@ -36,7 +38,11 @@
         "open": ".*"
       },
       "fs": {
-        "scope": ["$APPCONFIG/**", "$CONFIG/**", "$APPDATA/**"],
+        "scope": [
+          "$APPCONFIG/**",
+          "$CONFIG/**",
+          "$APPDATA/**"
+        ],
         "readFile": true,
         "writeFile": true,
         "createDir": true,
@@ -94,15 +100,16 @@
         "minWidth": 64
       },
       {
+        "fullscreen": false,
         "transparent": true,
         "decorations": true,
-        "resizable": false,
+        "resizable": true,
         "visible": false,
         "label": "settings",
         "url": "#settings",
         "title": "Overlayed - Settings",
-        "width": 600,
-        "height": 400
+        "width": 480,
+        "height": 640
       }
     ]
   }
