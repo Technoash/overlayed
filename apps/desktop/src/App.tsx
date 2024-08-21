@@ -24,7 +24,7 @@ function App() {
     console.log(`%cOverlayed ${window.location.hash} Window`, styleForLog);
   }, []);
 
-  const { isAvailable, error, status } = useUpdate();
+  const { update } = useUpdate();
   const { visible } = useAppStore();
 
   const { pin } = usePin();
@@ -36,7 +36,7 @@ function App() {
     <html className="text-white">
       {!pin && (
         <NavBar
-          isUpdateAvailable={isAvailable}
+          isUpdateAvailable={update?.available ?? false}
           pin={pin}
           alignDirection={horizontal}
           setAlignDirection={setHorizontalDirection}
@@ -46,20 +46,7 @@ function App() {
       <Routes>
         <Route path="/" Component={MainView} />
         <Route path="/channel" element={<ChannelView alignDirection={horizontal} />} />
-        <Route
-          path="/settings"
-          element={
-            // <SettingsView
-            //   update={{
-            //     isAvailable,
-            //     error,
-            //     status,
-            //   }}
-            // />
-
-            <Settings3Component />
-          }
-        />
+        <Route path="/settings" element={<SettingsView update={update} />} />
         <Route path="/error" Component={ErrorView} />
       </Routes>
     </html>

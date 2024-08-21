@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { exit } from "@tauri-apps/api/process";
+import { exit } from "@tauri-apps/plugin-process";
 import * as dateFns from "date-fns";
-import { saveWindowState, StateFlags } from "tauri-plugin-window-state-api";
+import { saveWindowState, StateFlags } from "@tauri-apps/plugin-window-state";
 
-import { shell } from "@tauri-apps/api";
-import { invoke } from "@tauri-apps/api";
+import { invoke } from "@tauri-apps/api/core";
 import { usePlatformInfo } from "@/hooks/use-platform-info";
 import Config from "@/config";
 
@@ -28,6 +27,7 @@ import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import * as shell from "@tauri-apps/plugin-shell";
 
 export const Developer = () => {
   const platformInfo = usePlatformInfo();
